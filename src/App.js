@@ -21,7 +21,7 @@ function App() {
               {/* Home Feed */}
               <HomeFeed/>
               {/* Widget bar */}
-            <Widgets />
+              <Widgets />
             </div>
           </Route>
           <Route path="*">

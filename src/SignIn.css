@@ -83,7 +83,7 @@
 .signIn__signUp {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .signIn__signUp >Button{
@@ -93,6 +93,7 @@
   border: 1px solid var(--twitter-color);
   text-transform: inherit ;
   margin-bottom: 20px ;
+  height: 50px;
 }
 .signIn__signUp >Button:hover {
   background-color: var(--twitter-color-dark) ;

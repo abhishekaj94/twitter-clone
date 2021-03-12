@@ -1,3 +1,43 @@
 .widgets {
-  flex: 0.3;
+  flex: 0.25;
+}
+
+.widgets__search {
+  display: flex;
+  background-color: var(--twitter-background);
+  border-radius: 30px;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.widgets__search >input{
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin-right: 10px;
+}
+
+.widgets__searchIcon {
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.widgets__whatsHappening, .widgets__whoToFollow {
+  background-color: rgb(192, 191, 191);
+  border-radius: 30px;
+  margin-left: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.widgets__whatsHappening>h2, .widgets__whoToFollow>h2 {
+  font-weight: 800;
+  font-size: 17px;
 }

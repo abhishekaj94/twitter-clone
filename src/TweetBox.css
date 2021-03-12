@@ -20,6 +20,13 @@
   font-size: 20px;
 }
 
+.tweetBox__inputImage {
+  flex: 1;
+  margin-left: 20px;
+  border: none;
+  font-size: 17px;
+}
+
 .tweetBox__tweetButton {
   background-color: var(--twitter-color) !important;
   border: none !important;

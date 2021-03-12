@@ -1,4 +1,5 @@
 import './HomeFeed.css';
+import Post from './Post';
 import TweetBox from './TweetBox';
 
 const HomeFeed = () => {
@@ -12,6 +13,11 @@ const HomeFeed = () => {
       {/* New Tweet */}
       <TweetBox />
       {/* Post */}
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
       {/* More posts */}
 
     </div>
