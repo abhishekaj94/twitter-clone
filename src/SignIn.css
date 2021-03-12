@@ -1,0 +1,114 @@
+.signIn {
+  display: flex;
+  height: 100vh;
+}
+
+.signIn__leftpanel {
+  flex: 0.55;
+  display: flex;
+  border-right: 1px solid black;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn__leftpanel__twitterLogo {
+  font-size: 350px !important;
+  color: var(--twitter-color);
+}
+
+.singIn__rightpanel {
+  flex: 0.45;
+  display: flex;
+  flex-direction: column;
+  background-color: black !important;
+  color: white;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.signIn__form {
+  flex: 0.2;
+  margin-bottom: 70px;
+}
+.signIn__form >form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.signIn__form >form>input {
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--twitter-background);
+  font-size: 18px;
+  background-color: inherit;
+  height: 50px;
+}
+
+.signIn__form >form>Button {
+  border-radius: 30px;
+  color: var(--twitter-color);
+  border: 1px solid var(--twitter-color);
+  text-transform: inherit !important;
+  height: 45px;
+  width: 100px;
+}
+
+.signIn__form >form>Button:hover {
+  background-color: var(--twitter-color);
+  color: var(--twitter-background);
+}
+
+
+.signIn__twitterLogo {
+  font-size: 50px !important;
+  margin-bottom: 30px;
+}
+
+.signIn__banner {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.signIn__banner >h2{
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+.signIn__banner >p{
+  font-size: 30px;
+}
+
+.signIn__signUp {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+.signIn__signUp >Button{
+  border-radius: 30px ;
+  color: white;
+  background-color: var(--twitter-color);
+  border: 1px solid var(--twitter-color);
+  text-transform: inherit ;
+  margin-bottom: 20px ;
+}
+.signIn__signUp >Button:hover {
+  background-color: var(--twitter-color-dark) ;
+  border: 1px solid var(--twitter-color-dark);
+}
+
+.signIn__login {
+  border-radius: 30px !important;
+  background-color: inherit !important;
+  color: var(--twitter-color) !important;
+  border: 1px solid var(--twitter-color) !important;
+  text-transform: inherit !important;
+  margin-bottom: 20px !important;
+}
+
+.signIn__login:hover {
+  background-color: var(--twitter-color) !important;
+  color: var(--twitter-background) !important;
+}
