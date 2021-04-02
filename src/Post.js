@@ -5,7 +5,7 @@ import RepeatIcon from '@material-ui/icons/Repeat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PublishIcon from '@material-ui/icons/Publish';
 
-const Post = ({ displayname, handle, timestamp, postText, postImage, avatar }) => {
+const Post = ({ tweet, displayname, handle, timestamp, postText, postImage, avatar }) => {
 
 
   return ( 
@@ -15,18 +15,19 @@ const Post = ({ displayname, handle, timestamp, postText, postImage, avatar }) =
       </div>
       <div className="post__body">
         <div className="post__body__username">
-          Abhishek Jain <span className="post__body__handle">@abhishek . 25m</span>
+          {displayname} <span className="post__body__handle">@{handle} . {timestamp}</span>
         </div>
         <div className="post__body__text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet illum veritatis minima nobis unde aliquam ipsum quis, nulla totam ea quia rem eum praesentium modi fuga, corporis animi. Repudiandae, commodi!</p>
+          <p>{postText}</p>
         </div>
         <div className="post__body__image">
-          <img src="https://learn.g2.com/hs-fs/hubfs/plan%20gif%20marketing%20strategy.gif?width=500&name=plan%20gif%20marketing%20strategy.gif" alt="Oops"/>
+          {postImage && <img src={postImage} alt="Oops, not found"/> }
+          {/* <img src="https://learn.g2.com/hs-fs/hubfs/plan%20gif%20marketing%20strategy.gif?width=500&name=plan%20gif%20marketing%20strategy.gif" alt="Oops"/> */}
         </div>
         <div className="post__body__actionButtons">
-          <ChatBubbleOutlineIcon fontSize="small" />
-          <RepeatIcon fontSize="small"/>
-          <FavoriteBorderIcon fontSize="small"/>
+          <ChatBubbleOutlineIcon fontSize="small" />{tweet.detail.comments.length}
+          <RepeatIcon fontSize="small"/>{tweet.retweets}
+          <FavoriteBorderIcon fontSize="small"/>{tweet.likes}
           <PublishIcon fontSize="small"/>
         </div>
       </div>

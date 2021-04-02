@@ -1,6 +1,10 @@
 import { Button } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { useHistory } from 'react-router';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from './features/userSlice';
+import axios from 'axios';
 import './SignIn.css';
 
 import Dialog from '@material-ui/core/Dialog';
@@ -8,11 +12,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { useState } from 'react';
+
 
 const SignIn = () => {
   const [open, setOpen] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleModalState = () => {
     setOpen(true);
@@ -22,8 +31,47 @@ const SignIn = () => {
   }
 
   const handleLogin = () => {
-    console.log("Logged In user")
-    history.push("/home");
+
+    const postParams = {
+      userName : userName,
+      password: password
+    }
+    axios.post('http://localhost:4000/login', postParams )
+      .then((response) => {
+        var responseData = response.data
+        if(responseData.Status === "OK"){
+          dispatch(logIn(responseData.Data.user))
+          history.push("/home");
+        }
+        else{
+          alert('Wrong username or password')
+        }
+      })
+      .catch((err) => {
+        console.log("error occured")
+      });
+  }
+
+  const signUp = () => {
+    const postParams = {
+      userName: userName,
+      password: password,
+      fullName: fullName,
+      email: email
+    }
+    axios.post('http://localhost:4000/signUp', postParams).then(response=>{
+      var responseData = response.data
+      if(responseData.Status === "OK"){
+        alert("signed up")
+      }
+      else{
+        alert('User exists')
+      }
+    })
+    .catch((err) => {
+        console.log("error occured")
+      });
+    handleClose()
   }
 
   return (
@@ -35,8 +83,8 @@ const SignIn = () => {
         <div className="singIn__rightpanel">
           <div className="signIn__form">
             <form>
-              <input placeholder="Username" type="text" variant="outlined"></input>
-              <input placeholder="Password" type="password" variant="outlined"></input>
+              <input placeholder="Username" onChange={(e) =>{setUserName(e.target.value)} } type="text" required variant="outlined"></input>
+              <input placeholder="Password" onChange={(e) =>{setPassword(e.target.value)} } type="password" required variant="outlined"></input>
               <Button onClick={handleLogin} variant="outlined">Log In</Button>
             </form>
           </div>
@@ -60,14 +108,16 @@ const SignIn = () => {
               To subscribe to this website, please enter your email address here. We will send updates
               occasionally.
             </DialogContentText>
-              <input placeholder="Username" type="text" variant="outlined"></input>
-              <input placeholder="Password" type="password" variant="outlined"></input>
+              <input placeholder="Username" onChange={(e) =>{setUserName(e.target.value)} } type="text" variant="outlined"></input>
+              <input placeholder="Password" onChange={(e) =>{setPassword(e.target.value)} } type="password" variant="outlined"></input>
+              <input placeholder="Full Name" onChange={(e) =>{setFullName(e.target.value)} } type="text" variant="outlined"></input>
+              <input placeholder="Email" onChange={(e) =>{setEmail(e.target.value)} } type="text" variant="outlined"></input>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} className="signIn__login">
               Cancel
             </Button>
-            <Button onClick={handleClose} className="signIn__login">
+            <Button onClick={signUp} className="signIn__login">
               Sign Up
             </Button>
           </DialogActions>
