@@ -104,14 +104,16 @@ const SignIn = () => {
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              To subscribe to this website, please enter your email address here. We will send updates
-              occasionally.
-            </DialogContentText>
-              <input placeholder="Username" onChange={(e) =>{setUserName(e.target.value)} } type="text" variant="outlined"></input>
-              <input placeholder="Password" onChange={(e) =>{setPassword(e.target.value)} } type="password" variant="outlined"></input>
-              <input placeholder="Full Name" onChange={(e) =>{setFullName(e.target.value)} } type="text" variant="outlined"></input>
-              <input placeholder="Email" onChange={(e) =>{setEmail(e.target.value)} } type="text" variant="outlined"></input>
+            <div className="signUp__form">
+              <div className="signUp__form__rows">
+                <input placeholder="Username" onChange={(e) =>{setUserName(e.target.value)} } type="text" variant="outlined"></input>
+                <input placeholder="Password" onChange={(e) =>{setPassword(e.target.value)} } type="password" variant="outlined"></input>
+              </div>
+              <div className="signUp__form__rows">
+                <input placeholder="Full Name" onChange={(e) =>{setFullName(e.target.value)} } type="text" variant="outlined"></input>
+                <input placeholder="Email" onChange={(e) =>{setEmail(e.target.value)} } type="text" variant="outlined"></input>
+              </div>
+            </div>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} className="signIn__login">

@@ -114,3 +114,26 @@
   background-color: var(--twitter-color) !important;
   color: var(--twitter-background) !important;
 }
+
+.dialog{
+  max-width: 300px;
+  padding: 20px;
+}
+
+.signUp__form{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.signUp__form__rows{
+  display: flex;
+  justify-content: space-around;
+}
+.signUp__form__rows>input{
+  border-radius: 20px;
+  border: 2px solid var(--twitter-background);
+  font-size: 18px;
+  height: 50px;
+  margin-bottom: 10px;
+}
