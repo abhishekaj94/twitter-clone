@@ -37,6 +37,19 @@
 .post__body__actionButtons {
   display: flex;
   color:gray;
-  justify-content: space-between !important;
+  /* justify-content: space-around !important; */
+  align-items: flex-start;
   padding: 5px 10px;
+}
+
+.post__body__actionButtons > *{
+  align-items: center;
+  padding: 2px;
+  margin-right: 10px;
+  justify-content: center;
+}
+.post__body__actionButtons > *:hover{
+  cursor: pointer;
+  background-color: rgb(214, 214, 214);
+  border-radius: 20px;
 }
